@@ -12,8 +12,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//new
         FragmentManager fm=getSupportFragmentManager();
+
+        //new thing
         FragmentTransaction fragtrran=fm.beginTransaction().add(R.id.myFrame,RegisterFragment.class,null);
         fragtrran.commit();
 
