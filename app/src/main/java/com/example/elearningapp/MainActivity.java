@@ -18,5 +18,7 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragtrran=fm.beginTransaction().add(R.id.myFrame,RegisterFragment.class,null);
         fragtrran.commit();
 
+
+
     }
 }

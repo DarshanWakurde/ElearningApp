@@ -1,10 +1,14 @@
 package com.example.elearningapp;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ReportFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,11 +33,11 @@ public class RegisterFragment extends Fragment {
     private FirebaseAuth mAuth;
     View view;
 
-    Random in=new Random();
+    Random in = new Random();
 
 
-    int [] images={R.drawable.one,R.drawable.two,R.drawable.three,R.drawable.four,R.drawable.five,R.drawable.six,R.drawable.seven,R.drawable.eight,R.drawable.nine};
-    EditText email,pass,name,mobileno;
+    int[] images = {R.drawable.one, R.drawable.two, R.drawable.three, R.drawable.four, R.drawable.five, R.drawable.six, R.drawable.seven, R.drawable.eight, R.drawable.nine};
+    EditText email, pass, name, mobileno;
     TextView regmi;
 
     FirebaseAuth firebaseAuth;
@@ -43,34 +47,34 @@ public class RegisterFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        view=inflater.inflate(R.layout.fragment_register, container, false);
+        view = inflater.inflate(R.layout.fragment_register, container, false);
 
-        regmi=view.findViewById(R.id.regishipre);
-        email=view.findViewById(R.id.email);
-        pass=view.findViewById(R.id.passowrd);
-        name=view.findViewById(R.id.name);
-        mobileno=view.findViewById(R.id.mobile);
-        mAuth=FirebaseAuth.getInstance();
-        btn=view.findViewById(R.id.register);
-        FragmentManager fm=getParentFragmentManager();
-        FragmentTransaction fragTransc=fm.beginTransaction();
-        fragTransc.replace(R.id.myFrame,new LoginFrag());
+        regmi = view.findViewById(R.id.regishipre);
+        email = view.findViewById(R.id.email);
+        pass = view.findViewById(R.id.passowrd);
+        name = view.findViewById(R.id.name);
+        mobileno = view.findViewById(R.id.mobile);
+        mAuth = FirebaseAuth.getInstance();
+        btn = view.findViewById(R.id.register);
+        FragmentManager fm = getParentFragmentManager();
+        FragmentTransaction fragTransc = fm.beginTransaction();
+        fragTransc.replace(R.id.myFrame, new LoginFrag());
 
-        btn.setOnClickListener(new View.OnClickListener(){
+        btn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
 
-                mAuth.createUserWithEmailAndPassword(email.getText().toString(),pass.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                mAuth.createUserWithEmailAndPassword(email.getText().toString(), pass.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {
 
-                        int id= images[in.nextInt(images.length)];
-                        createUserFirebase(email.getText().toString(),name.getText().toString(),mobileno.getText().toString(),pass.getText().toString(),id);
+                        int id = images[in.nextInt(images.length)];
+                        createUserFirebase(email.getText().toString(), name.getText().toString(), mobileno.getText().toString(), pass.getText().toString(), id);
 
-                        Toast.makeText(getActivity(),"Created Successfully",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity(), "Created Successfully", Toast.LENGTH_LONG).show();
                         fragTransc.commit();
                     }
-                }); 
+                });
             }
         });
 
@@ -87,12 +91,12 @@ public class RegisterFragment extends Fragment {
     }
 
     private void createUserFirebase(String email, String name, String mobile, String pass, int id) {
-        String unique=mAuth.getUid();
-        Long mobile1=Long.parseLong(mobile);
-        Student stud=new Student(email,name,pass,mobile1,id);
+        String unique = mAuth.getUid();
+        Long mobile1 = Long.parseLong(mobile);
+        Student stud = new Student(email, name, pass, mobile1, id);
 
-        FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance("https://elearning-app-e343a-default-rtdb.firebaseio.com/");
-        DatabaseReference dbref=firebaseDatabase.getReference("StudentsData").child("Stud"+unique);
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance("https://elearning-app-e343a-default-rtdb.firebaseio.com/");
+        DatabaseReference dbref = firebaseDatabase.getReference("StudentsData").child("Stud" + unique);
         dbref.setValue(stud).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
@@ -101,6 +105,16 @@ public class RegisterFragment extends Fragment {
         });
 
 
+    }
+
+
+    public void onStart() {
+        super.onStart();
+
+        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+            startActivity(new Intent(getActivity(), Courser.class));
+                            getActivity().finish();
+        }
 
     }
 }
