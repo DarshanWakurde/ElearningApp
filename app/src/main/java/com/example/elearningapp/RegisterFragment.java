@@ -17,6 +17,10 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Random;
 
 
 public class RegisterFragment extends Fragment {
@@ -25,8 +29,14 @@ public class RegisterFragment extends Fragment {
     private FirebaseAuth mAuth;
     View view;
 
-    EditText email,pass;
+    Random in=new Random();
+
+
+    int [] images={R.drawable.one,R.drawable.two,R.drawable.three,R.drawable.four,R.drawable.five,R.drawable.six,R.drawable.seven,R.drawable.eight,R.drawable.nine};
+    EditText email,pass,name,mobileno;
     TextView regmi;
+
+    FirebaseAuth firebaseAuth;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -38,6 +48,8 @@ public class RegisterFragment extends Fragment {
         regmi=view.findViewById(R.id.regishipre);
         email=view.findViewById(R.id.email);
         pass=view.findViewById(R.id.passowrd);
+        name=view.findViewById(R.id.name);
+        mobileno=view.findViewById(R.id.mobile);
         mAuth=FirebaseAuth.getInstance();
         btn=view.findViewById(R.id.register);
         FragmentManager fm=getParentFragmentManager();
@@ -51,6 +63,10 @@ public class RegisterFragment extends Fragment {
                 mAuth.createUserWithEmailAndPassword(email.getText().toString(),pass.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {
+
+                        int id= images[in.nextInt(images.length)];
+                        createUserFirebase(email.getText().toString(),name.getText().toString(),mobileno.getText().toString(),pass.getText().toString(),id);
+
                         Toast.makeText(getActivity(),"Created Successfully",Toast.LENGTH_LONG).show();
                         fragTransc.commit();
                     }
@@ -68,5 +84,23 @@ public class RegisterFragment extends Fragment {
 
         });
         return view;
+    }
+
+    private void createUserFirebase(String email, String name, String mobile, String pass, int id) {
+        String unique=mAuth.getUid();
+        Long mobile1=Long.parseLong(mobile);
+        Student stud=new Student(email,name,pass,mobile1,id);
+
+        FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance("https://elearning-app-e343a-default-rtdb.firebaseio.com/");
+        DatabaseReference dbref=firebaseDatabase.getReference("StudentsData").child("Stud"+unique);
+        dbref.setValue(stud).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+
+            }
+        });
+
+
+
     }
 }

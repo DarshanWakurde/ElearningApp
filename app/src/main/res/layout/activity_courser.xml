@@ -1,22 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Courser"
     android:background="@color/white"
-    >
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+
+        android:backgroundTint="#FFFFFF"
+        android:elevation="6dp"
+        app:cardCornerRadius="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="127dp"
+            android:layout_above="@+id/myCourses"
+            android:layout_margin="15dp"
+            android:layout_marginBottom="3dp"
+            android:backgroundTint="@color/blue">
+
+            <TextView
+                android:id="@+id/namestudent"
+                android:layout_width="238dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="114dp"
+                android:layout_marginBottom="78dp"
+                android:fontFamily="@font/myfont3"
+                android:text="Hey,  Darshan "
+                android:textColor="@color/blue"
+                android:textSize="40dp" />
+
+            <TextView
+                android:id="@+id/quote"
+                android:layout_width="295dp"
+                android:layout_height="70dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="114dp"
+                android:layout_marginBottom="3dp"
+                android:fontFamily="@font/myfont2"
+                android:text="Unlock Your Potential: Education is the Key to Success."
+                android:textColor="@color/black"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="89dp"
+                android:layout_height="113dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="4dp"
+                app:cardCornerRadius="25dp"
+                app:cardElevation="15dp">
+
+                <ImageView
+                    android:id="@+id/myimage"
+                    android:layout_width="99dp"
+                    android:layout_height="match_parent"
+                    android:src="@color/black" />
+
+            </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
 
 
-    <GridView
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="63dp"
+        android:layout_above="@+id/myCourses"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="65dp"
+
+        android:layout_marginBottom="-3dp"
+        android:text="Explore our Courses"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/myCourses"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="547dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="47dp"
-        android:numColumns="2"
+        android:layout_marginBottom="-11dp"
         android:background="@color/white"
-        android:outlineSpotShadowColor="@color/white"
-        android:backgroundTint="@color/white"/>
+        android:backgroundTint="@color/white"
+        android:numColumns="2"
+        android:outlineSpotShadowColor="@color/white" />
+
+
 </RelativeLayout>
