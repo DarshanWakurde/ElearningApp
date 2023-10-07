@@ -13,6 +13,9 @@
         android:theme="@style/Theme.ElearningApp"
         tools:targetApi="31">
         <activity
+            android:name=".Nextactivity"
+            android:exported="false" />
+        <activity
             android:name=".Courser"
             android:exported="false" />
         <activity

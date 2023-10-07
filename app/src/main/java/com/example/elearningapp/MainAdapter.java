@@ -1,10 +1,12 @@
 package com.example.elearningapp;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,6 +16,14 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
     String[] names;
     int [] pics;
+
+
+    public ItemClickListner click;
+
+    public void setClickListner(ItemClickListner mylistner){
+        this.click=mylistner;
+
+    }
 
     public MainAdapter(String[] names, int[] pics) {
         this.names = names;
@@ -28,10 +38,19 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
         holder.imageView.setImageResource(pics[position]);
         holder.textView.setText(names[position]);
+        
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (click != null) {
+                    click.onCLick(view,position);
+                }
+            }
+        });
 
     }
 
@@ -40,7 +59,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
         return names.length;
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         ImageView imageView;
         TextView textView;
@@ -48,6 +67,13 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
             super(itemView);
             imageView=itemView.findViewById(R.id.courseImage);
             textView=itemView.findViewById(R.id.nameCourse);
+        }
+
+        @Override
+        public void onClick(View view) {
+            if(click !=null){
+                click.onCLick(view,getAdapterPosition());
+            }
         }
     }
 }

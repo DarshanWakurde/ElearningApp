@@ -6,7 +6,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.GridLayout;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -23,53 +25,51 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class Courser extends AppCompatActivity {
+public class Courser extends AppCompatActivity implements ItemClickListner {
 
 
     RecyclerView recyclerView;
-TextView name;
-ImageView imgwe;
-    String [] str={"Data Structure and algo","Java Programing","Operating System","Sql","Python"};
-    int[] img={R.drawable.datastucture,R.drawable.java,R.drawable.ps,R.drawable.sql,R.drawable.python};
+    TextView name;
+    ImageView imgwe;
+    String[] str = {"Data Structure and algo", "Java Programing", "Operating System", "Sql", "Python"};
+    int[] img = {R.drawable.datastucture, R.drawable.java, R.drawable.ps, R.drawable.sql, R.drawable.python};
     Student stud;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_courser);
 
-        name=findViewById(R.id.namestudent);
-        imgwe=findViewById(R.id.myimage);
-        String auth=FirebaseAuth.getInstance().getUid();
+        name = findViewById(R.id.namestudent);
+        imgwe = findViewById(R.id.myimage);
+        String auth = FirebaseAuth.getInstance().getUid();
 
-        FirebaseDatabase database=FirebaseDatabase.getInstance("https://elearning-app-e343a-default-rtdb.firebaseio.com/");
-        DatabaseReference dbref=database.getReference("StudentsData");
-     dbref.child("Stud".concat(auth)).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-         @Override
-         public void onComplete(@NonNull Task<DataSnapshot> task) {
-             if(task.isSuccessful()){
+        FirebaseDatabase database = FirebaseDatabase.getInstance("https://elearning-app-e343a-default-rtdb.firebaseio.com/");
+        DatabaseReference dbref = database.getReference("StudentsData");
+        dbref.child("Stud".concat(auth)).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (task.isSuccessful()) {
 
-                 if(task.getResult().exists()){
-
-
-                     DataSnapshot snapshot=task.getResult();
-                    name.setText( "Hey,   ".concat(String.valueOf(snapshot.child("name").getValue())));
-                    String id= String.valueOf(snapshot.child("id").getValue());
-
-                    imgwe.setImageResource(Integer.parseInt(id));
+                    if (task.getResult().exists()) {
 
 
+                        DataSnapshot snapshot = task.getResult();
+                        name.setText("Hey,   ".concat(String.valueOf(snapshot.child("name").getValue())));
+                        String id = String.valueOf(snapshot.child("id").getValue());
 
-                 }
-                 else{
-                     Toast.makeText(Courser.this, "Resul Not Exist", Toast.LENGTH_SHORT).show();
-                 }
+                        imgwe.setImageResource(Integer.parseInt(id));
 
-             }else{
-                 Toast.makeText(Courser.this, "Sorry Not Success!!", Toast.LENGTH_SHORT).show();
-             }
-         }
-     });
 
+                    } else {
+                        Toast.makeText(Courser.this, "Resul Not Exist", Toast.LENGTH_SHORT).show();
+                    }
+
+                } else {
+                    Toast.makeText(Courser.this, "Sorry Not Success!!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
 
 //        dbref.addValueEventListener(new ValueEventListener() {
@@ -92,24 +92,28 @@ ImageView imgwe;
 //        });
 
 
+        recyclerView = findViewById(R.id.myCourses);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        MainAdapter mainAdapter = new MainAdapter(str, img);
 
-
-
-
-
-        recyclerView=findViewById(R.id.myCourses);
-        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
-
-
-        MainAdapter mainAdapter=new MainAdapter(str,img);
-recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setLayoutManager(linearLayoutManager);
 
         recyclerView.setAdapter(mainAdapter);
+        mainAdapter.setClickListner(new ItemClickListner() {
+            @Override
+            public void onCLick(View v, int pos) {
+                Intent intent=new Intent(Courser.this,Nextactivity.class);
+                intent.putExtra("Resid",img[pos]);
+                intent.putExtra("Name",str[pos]);
+                startActivity(intent);
+            }
+        });
+
+    }
 
 
-
-
-
+    @Override
+    public void onCLick(View v, int pos) {
 
     }
 }
