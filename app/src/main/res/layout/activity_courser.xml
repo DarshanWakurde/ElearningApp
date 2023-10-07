@@ -8,16 +8,30 @@
     android:background="@color/white"
     android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/myCourses"
+        android:layout_below="@+id/cardview1"
+        android:layout_marginStart="95dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginBottom="13dp"
+
+        android:text="Explore Content"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
+        android:id="@+id/cardview1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
-
-        android:backgroundTint="#FFFFFF"
-        android:elevation="6dp"
-        app:cardCornerRadius="10dp">
+        android:backgroundTint="#C7EFF4"
+        app:cardCornerRadius="10dp"
+        >
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -77,29 +91,17 @@
 
     </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="63dp"
-        android:layout_above="@+id/myCourses"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="65dp"
-
-        android:layout_marginBottom="-3dp"
-        android:text="Explore our Courses"
-        android:textColor="@color/black"
-        android:textSize="30dp"
-        android:textStyle="bold" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/myCourses"
-        android:layout_width="match_parent"
-        android:layout_height="547dp"
+        android:layout_width="396dp"
+        android:layout_height="608dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="-11dp"
+        android:layout_marginBottom="1dp"
         android:background="@color/white"
         android:backgroundTint="@color/white"
         android:numColumns="2"
-        android:outlineSpotShadowColor="@color/white" />
+        android:outlineSpotShadowColor="@color/white"
+        tools:ignore="UnknownId" />
 
 
 </RelativeLayout>

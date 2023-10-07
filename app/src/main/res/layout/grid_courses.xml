@@ -3,12 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-   android:outlineSpotShadowColor="@color/blue"
+   android:outlineSpotShadowColor="@color/black"
    android:elevation="6dp"
     android:background="@color/white"
     app:cardCornerRadius="12dp"
-    android:backgroundTint="@color/blue"
-    android:layout_margin="5dp"
+    app:cardBackgroundColor="@color/cardview_shadow_end_color"
+    android:padding="@dimen/cardview_compat_inset_shadow"
+    app:cardElevation="12dp"
+    android:layout_margin="12dp"
     >
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,6 +24,7 @@
             android:id="@+id/courseImage"
             android:layout_width="match_parent"
             android:layout_height="150dp"
+            android:layout_gravity="center"
             android:elevation="10dp"
             android:src="@drawable/ic_launcher_background"
 
