@@ -3,8 +3,12 @@ package com.example.elearningapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
@@ -15,13 +19,15 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class VideoScreen extends AppCompatActivity {
-
+    boolean check =true;
     String videoId2;
+    ImageView imageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video_screen);
 
+        imageView=findViewById(R.id.fullScreen);
         Intent intent=getIntent();
         String link=intent.getStringExtra("Link");
         YouTubePlayerView youTubePlayerView = findViewById(R.id.youtube_player_view);
@@ -42,6 +48,21 @@ public class VideoScreen extends AppCompatActivity {
                 youTubePlayer.loadVideo(videoId, 0);
             }
         });
+
+
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+              check=!check;
+                if(!check){
+                    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+                }else {
+                    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+                }
+            }
+        });
+
+
 
     }
 }
