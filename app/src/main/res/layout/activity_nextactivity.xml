@@ -21,10 +21,11 @@
         android:textStyle="bold"
         android:textSize="25dp"
         android:id="@+id/nameCourse"/>
-    <Button
+
+    <ListView
+        android:id="@+id/listview1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Videos"
-        android:id="@+id/video"
-        android:textSize="25dp"/>
+        android:layout_height="match_parent"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="15dp"/>
 </LinearLayout>
