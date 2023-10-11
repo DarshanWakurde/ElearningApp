@@ -21,4 +21,10 @@
         android:textStyle="bold"
         android:textSize="25dp"
         android:id="@+id/nameCourse"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Videos"
+        android:id="@+id/video"
+        android:textSize="25dp"/>
 </LinearLayout>
