@@ -36,7 +36,7 @@ public class RegisterFragment extends Fragment {
     Random in = new Random();
 
 
-    int[] images = {R.drawable.one, R.drawable.two, R.drawable.three, R.drawable.four, R.drawable.five, R.drawable.six, R.drawable.seven, R.drawable.eight, R.drawable.nine};
+    int[] images = {R.drawable.harry, R.drawable.hermine, R.drawable.ron, R.drawable.lupin, R.drawable.snape, R.drawable.draco, R.drawable.albusdd, R.drawable.snape, R.drawable.hedwig};
     EditText email, pass, name, mobileno;
     TextView regmi;
 
