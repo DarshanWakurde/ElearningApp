@@ -102,10 +102,13 @@ public class Courser extends AppCompatActivity implements ItemClickListner {
         mainAdapter.setClickListner(new ItemClickListner() {
             @Override
             public void onCLick(View v, int pos) {
-                Intent intent=new Intent(Courser.this,Nextactivity.class);
-                intent.putExtra("Resid",img[pos]);
-                intent.putExtra("Name",str[pos]);
-                startActivity(intent);
+
+                if(str[pos].equals("Python")) {
+                    Intent intent = new Intent(Courser.this, Nextactivity.class);
+                    intent.putExtra("Resid", img[pos]);
+                    intent.putExtra("Name", str[pos]);
+                    startActivity(intent);
+                }
             }
         });
 

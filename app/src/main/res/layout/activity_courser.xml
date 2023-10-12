@@ -96,8 +96,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/myCourses"
-        android:layout_width="396dp"
-        android:layout_height="608dp"
+        android:layout_width="match_parent"
+        android:layout_height="535dp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="1dp"
         android:background="@color/white"

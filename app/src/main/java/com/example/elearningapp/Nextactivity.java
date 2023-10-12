@@ -33,6 +33,12 @@ public class Nextactivity extends AppCompatActivity {
         name_Course=findViewById(R.id.nameCourse);
         listView=findViewById(R.id.listview1);
 
+        Intent nextIntent=getIntent();
+        String Name=nextIntent.getStringExtra("Name");
+        name_Course.setText(nextIntent.getStringExtra("Name"));
+        Course_image.setImageResource(nextIntent.getIntExtra("Resid",R.drawable.java));
+
+
         items=new ArrayList<>();
         nextitem_models title2=new nextitem_models(R.drawable.videoss,"Videos");
         nextitem_models title3=new nextitem_models(R.drawable.quizz,"Quizz");
@@ -51,7 +57,9 @@ public class Nextactivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 if(items.get(i).getTitle1().equals("Videos")){
-                    startActivity(new Intent(Nextactivity.this,VideoList.class));
+                    Intent intent=new Intent(Nextactivity.this,VideoList.class);
+                    intent.putExtra("Name",Name);
+                    startActivity(intent);
                 }
             }
         });
@@ -62,9 +70,6 @@ public class Nextactivity extends AppCompatActivity {
 
 
 
-        Intent nextIntent=getIntent();
-        name_Course.setText(nextIntent.getStringExtra("Name"));
-        Course_image.setImageResource(nextIntent.getIntExtra("Resid",R.drawable.java));
 
 
 
