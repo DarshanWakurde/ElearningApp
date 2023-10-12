@@ -46,7 +46,6 @@ public class AdapterView extends RecyclerView.Adapter<AdapterView.ViewHolder> {
 
         VideoModel videoModel=list.get(position);
         holder.title.setText(videoModel.getTitle());
-        holder.discription.setText(videoModel.getDiscription());
         String youtubeUrl=videoModel.getLink();
         String regex = "(?<=v=|\\/videos\\/|\\/embed\\/|\\/v\\/|\\/e\\/|watch\\?v=|\\/watch\\?feature=player_embedded&v=|%2Fvideos%2F|embed\\/_?vi?\\/|\\/v\\/|%2Fv%2F)[^#\\&\\?\\n]*";
         Matcher matcher = Pattern.compile(regex).matcher(youtubeUrl);
@@ -74,13 +73,13 @@ public class AdapterView extends RecyclerView.Adapter<AdapterView.ViewHolder> {
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         ImageView imageView;
         TextView title;
-        TextView discription;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView=itemView.findViewById(R.id.thumbNail);
             title=itemView.findViewById(R.id.Title);
-            discription=itemView.findViewById(R.id.discription);
+
 
         }
 
