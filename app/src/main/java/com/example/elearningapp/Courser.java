@@ -32,7 +32,7 @@ public class Courser extends AppCompatActivity implements ItemClickListner {
     TextView name;
     ImageView imgwe;
     String[] str = {"Data Structure and algo", "Java Programing", "Operating System", "Sql", "Python"};
-    int[] img = {R.drawable.datastucture, R.drawable.java, R.drawable.ps, R.drawable.sql, R.drawable.python};
+    int[] img = {R.drawable.datastructurealgos, R.drawable.java, R.drawable.ps, R.drawable.sql, R.drawable.python};
     Student stud;
 
     @Override
