@@ -5,10 +5,12 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
@@ -62,6 +64,8 @@ public class AdapterView extends RecyclerView.Adapter<AdapterView.ViewHolder> {
             }
         });
 
+        holder.cardView.setAnimation(AnimationUtils.loadAnimation(holder.itemView.getContext(),R.anim.anim_reccycle));
+
 
     }
 
@@ -74,12 +78,14 @@ public class AdapterView extends RecyclerView.Adapter<AdapterView.ViewHolder> {
         ImageView imageView;
         TextView title;
 
+        CardView cardView;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView=itemView.findViewById(R.id.thumbNail);
             title=itemView.findViewById(R.id.Title);
-
+            cardView=itemView.findViewById(R.id.videolist);
 
         }
 

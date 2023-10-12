@@ -25,12 +25,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class Courser extends AppCompatActivity implements ItemClickListner {
 
 
     RecyclerView recyclerView;
     TextView name;
-    ImageView imgwe;
+    CircleImageView imgwe;
     String[] str = {"Data Structure and algo", "Java Programing", "Operating System", "Sql", "Python"};
     int[] img = {R.drawable.datastructurealgos, R.drawable.java, R.drawable.ps, R.drawable.sql, R.drawable.python};
     Student stud;

@@ -4,11 +4,14 @@ import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
@@ -42,6 +45,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
         holder.imageView.setImageResource(pics[position]);
         holder.textView.setText(names[position]);
+
         
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,6 +55,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
                 }
             }
         });
+        holder.cardView.setAnimation(AnimationUtils.loadAnimation(holder.itemView.getContext(),R.anim.anim_reccycle));
 
     }
 
@@ -63,10 +68,12 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
         ImageView imageView;
         TextView textView;
+        CardView cardView;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView=itemView.findViewById(R.id.courseImage);
             textView=itemView.findViewById(R.id.nameCourse);
+            cardView=itemView.findViewById(R.id.cardMainCourses);
         }
 
         @Override

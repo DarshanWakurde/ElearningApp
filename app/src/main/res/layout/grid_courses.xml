@@ -9,6 +9,7 @@
     app:cardCornerRadius="12dp"
     app:cardBackgroundColor="@color/cardview_shadow_end_color"
     android:padding="@dimen/cardview_compat_inset_shadow"
+    android:id="@+id/cardMainCourses"
     app:cardElevation="12dp"
     android:layout_margin="12dp"
     >
