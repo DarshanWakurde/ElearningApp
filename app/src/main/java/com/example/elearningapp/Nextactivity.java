@@ -6,6 +6,9 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
@@ -51,9 +54,18 @@ public class Nextactivity extends AppCompatActivity {
         items.add(title4);
         items.add(title5);
 
+
+
+        Animation animation = AnimationUtils.loadAnimation(this, R.anim.grid_item_animation);
+
+// Create a LayoutAnimationController with your animation
+        LayoutAnimationController controller = new LayoutAnimationController(animation);
+        controller.setOrder(LayoutAnimationController.ORDER_NORMAL); // You can change the order if needed
+
+        listView.setLayoutAnimation(controller);
+        listView.startLayoutAnimation();
         nextCustomadapter=new nextCustomadapter(this,items);
         listView.setAdapter(nextCustomadapter);
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {

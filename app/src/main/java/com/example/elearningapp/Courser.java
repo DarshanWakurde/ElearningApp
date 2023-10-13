@@ -58,7 +58,7 @@ public class Courser extends AppCompatActivity implements ItemClickListner {
                         name.setText("Hey,   ".concat(String.valueOf(snapshot.child("name").getValue())));
                         String id = String.valueOf(snapshot.child("id").getValue());
                         imgId=Integer.parseInt(id);
-                        Toast.makeText(Courser.this, ""+imgId, Toast.LENGTH_SHORT).show();
+
                         imgwe.setImageResource(imgId);
 
                     } else {
