@@ -113,7 +113,7 @@ public class LoginFrag extends Fragment {
     }
 
     public static boolean isValidPassword(String password) {
-        String PASSWORD_REGEX = "^[a-zA-Z]{6,}$";
+        String PASSWORD_REGEX = "^[a-zA-Z1-9]{6,}$";
         Pattern pattern = Pattern.compile(PASSWORD_REGEX);
         Matcher matcher = pattern.matcher(password);
         return matcher.matches();

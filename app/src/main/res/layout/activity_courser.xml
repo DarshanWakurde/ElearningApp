@@ -38,14 +38,16 @@ android:background="@drawable/backgroundimage"
 
             <TextView
                 android:id="@+id/namestudent"
-                android:layout_width="238dp"
+                android:layout_width="232dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginEnd="114dp"
-                android:layout_marginBottom="78dp"
+                android:layout_marginEnd="120dp"
+                android:layout_marginBottom="79dp"
                 android:fontFamily="@font/myfont3"
                 android:text="Hey,  Darshan "
+                android:maxLines="1"
+
                 android:textColor="@color/blue"
                 android:textSize="40dp" />
 
