@@ -41,8 +41,9 @@
             android:layout_marginBottom="9dp"
             android:padding="10dp"
             android:maxEms="100"
+            android:maxLines="3"
             android:text="Video Title here"
-            android:textSize="15dp"
+            android:textSize="18dp"
             android:textStyle="bold"
             android:textColor="@color/black"/>
 
