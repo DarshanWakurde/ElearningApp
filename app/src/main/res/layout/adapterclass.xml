@@ -3,12 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="15dp"
-    app:cardElevation="6dp"
-    android:id="@+id/videolist"
-    android:layout_marginBottom="5dp"
+    app:cardCornerRadius="30dp"
+     app:cardElevation="12dp"
+    android:layout_marginTop="10dp"
+     android:id="@+id/videolist"
+     android:padding="5dp"
     android:background="@color/white"
-    android:layout_marginTop="5dp">
+
+ >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -18,26 +20,30 @@
 
 
         <ImageView
+            android:id="@+id/thumbNail"
             android:layout_width="150dp"
             android:layout_height="90dp"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="16dp"
-            android:id="@+id/thumbNail"
+            android:layout_marginEnd="243dp"
+            android:layout_marginBottom="20dp"
             android:padding="15dp" />
 
         <TextView
             android:id="@+id/Title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="221dp"
+            android:layout_height="107dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginTop="33dp"
-            android:layout_marginEnd="9dp"
-            android:layout_marginBottom="43dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="9dp"
             android:padding="10dp"
+            android:maxEms="50"
             android:text="Video Title here"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:textColor="@color/black"/>
 
     </RelativeLayout>
 

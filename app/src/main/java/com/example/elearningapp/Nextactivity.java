@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -18,7 +19,7 @@ public class Nextactivity extends AppCompatActivity {
 
     ImageView Course_image;
     TextView name_Course;
-    ListView listView;
+    GridView listView;
     ArrayList<nextitem_models> items;
 
     nextCustomadapter nextCustomadapter;

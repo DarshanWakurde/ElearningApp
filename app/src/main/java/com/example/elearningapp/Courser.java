@@ -31,6 +31,7 @@ public class Courser extends AppCompatActivity implements ItemClickListner {
 
 
     RecyclerView recyclerView;
+    int imgId=0;
     TextView name;
     CircleImageView imgwe;
     String[] str = {"Data Structure and algo", "Java Programing", "Operating System", "Sql", "Python"};
@@ -52,16 +53,13 @@ public class Courser extends AppCompatActivity implements ItemClickListner {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 if (task.isSuccessful()) {
-
                     if (task.getResult().exists()) {
-
-
                         DataSnapshot snapshot = task.getResult();
                         name.setText("Hey,   ".concat(String.valueOf(snapshot.child("name").getValue())));
                         String id = String.valueOf(snapshot.child("id").getValue());
-
-                        imgwe.setImageResource(Integer.parseInt(id));
-
+                        imgId=Integer.parseInt(id);
+                        Toast.makeText(Courser.this, ""+imgId, Toast.LENGTH_SHORT).show();
+                        imgwe.setImageResource(imgId);
 
                     } else {
                         Toast.makeText(Courser.this, "Resul Not Exist", Toast.LENGTH_SHORT).show();
@@ -72,8 +70,6 @@ public class Courser extends AppCompatActivity implements ItemClickListner {
                 }
             }
         });
-
-
 //        dbref.addValueEventListener(new ValueEventListener() {
 //            @Override
 //            public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -98,30 +94,21 @@ public class Courser extends AppCompatActivity implements ItemClickListner {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         MainAdapter mainAdapter = new MainAdapter(str, img);
 
+
         recyclerView.setLayoutManager(linearLayoutManager);
 
         recyclerView.setAdapter(mainAdapter);
         mainAdapter.setClickListner(new ItemClickListner() {
             @Override
             public void onCLick(View v, int pos) {
-
-
-
-
                     Intent intent = new Intent(Courser.this, Nextactivity.class);
                     intent.putExtra("Resid", img[pos]);
                     intent.putExtra("Name", str[pos]);
                     startActivity(intent);
-
-
-
-
             }
         });
 
     }
-
-
     @Override
     public void onCLick(View v, int pos) {
 
