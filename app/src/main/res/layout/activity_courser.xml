@@ -47,7 +47,6 @@ android:background="@drawable/backgroundimage"
                 android:fontFamily="@font/myfont3"
                 android:text="Hey,  Darshan "
                 android:maxLines="1"
-
                 android:textColor="@color/blue"
                 android:textSize="40dp" />
 
