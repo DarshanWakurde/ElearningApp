@@ -61,7 +61,6 @@ public class Nextactivity extends AppCompatActivity {
 // Create a LayoutAnimationController with your animation
         LayoutAnimationController controller = new LayoutAnimationController(animation);
         controller.setOrder(LayoutAnimationController.ORDER_NORMAL); // You can change the order if needed
-
         listView.setLayoutAnimation(controller);
         listView.startLayoutAnimation();
         nextCustomadapter=new nextCustomadapter(this,items);
@@ -71,6 +70,11 @@ public class Nextactivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 if(items.get(i).getTitle1().equals("Videos")){
                     Intent intent=new Intent(Nextactivity.this,VideoList.class);
+                    intent.putExtra("Name",Name);
+                    startActivity(intent);
+                }
+                if(items.get(i).getTitle1().equals("Quizz")){
+                    Intent intent=new Intent(Nextactivity.this,StartQuizActivity.class);
                     intent.putExtra("Name",Name);
                     startActivity(intent);
                 }

@@ -13,6 +13,15 @@
         android:theme="@style/Theme.ElearningApp"
         tools:targetApi="31">
         <activity
+            android:name=".WonActivity"
+            android:exported="false" />
+        <activity
+            android:name=".QuizActivity"
+            android:exported="false" />
+        <activity
+            android:name=".StartQuizActivity"
+            android:exported="false" />
+        <activity
             android:name=".VideoScreen"
             android:exported="false" />
         <activity

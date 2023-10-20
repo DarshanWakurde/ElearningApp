@@ -5,4 +5,11 @@
     <color name="myfav">#E32A69</color>
     <color name="off">#E4E4E4</color>
     <color name="blue">#69C3EC</color>
+
+    <color name="background">#2196F3</color>
+    <color name="relative">#055FA6</color>
+    <color name="track">#FFEB3B</color>
+    <color name="green">#7EF670</color>
+
+    <color name="timesup">#E43155</color>
 </resources>
