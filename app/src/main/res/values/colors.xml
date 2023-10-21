@@ -11,5 +11,6 @@
     <color name="track">#FFEB3B</color>
     <color name="green">#7EF670</color>
 
+    <color name="purple_500">#9A48A8</color>
     <color name="timesup">#E43155</color>
 </resources>
