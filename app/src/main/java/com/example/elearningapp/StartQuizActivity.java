@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.util.Log;
 import android.widget.ProgressBar;
 
+import com.example.loadinganimation.LoadingAnimation;
 import com.github.ybq.android.spinkit.sprite.Sprite;
 import com.github.ybq.android.spinkit.style.DoubleBounce;
 import com.github.ybq.android.spinkit.style.Wave;
@@ -21,12 +22,23 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class StartQuizActivity extends AppCompatActivity {
+    LoadingAnimation loadingAnim;
 
     public static ArrayList<DataModel> list;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_quiz);
+
+        loadingAnim=findViewById(R.id.loadingAnimNext2);
+        loadingAnim.setProgressVector(getResources().getDrawable(R.drawable.quiz));
+        loadingAnim.setTextViewVisibility(true);
+        loadingAnim.setTextStyle(true);
+        loadingAnim.setTextColor(R.color.background);
+        loadingAnim.setTextSize(12F);
+        loadingAnim.setTextMsg("Please Wait");
+        loadingAnim.setEnlarge(5);
+
 
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();

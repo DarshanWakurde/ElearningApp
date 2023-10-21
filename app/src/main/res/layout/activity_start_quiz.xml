@@ -9,6 +9,20 @@
     android:gravity="center"
     tools:context=".StartQuizActivity">
 
+    <com.example.loadinganimation.LoadingAnimation
+        android:id="@+id/loadingAnimNext2"
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+android:layout_marginBottom="70dp"
+        android:elevation="10dp"
+        app:barType="@drawable/clock"
+        app:boldText="false"
+        app:enlarge="5"
+        app:textColor="@color/purple_500"
+        app:textSize="15sp" />
+
 
     <com.github.ybq.android.spinkit.SpinKitView
         android:id="@+id/spin_kit"
