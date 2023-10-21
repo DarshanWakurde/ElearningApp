@@ -74,7 +74,7 @@ public class Nextactivity extends AppCompatActivity {
                     startActivity(intent);
                 }
                 if(items.get(i).getTitle1().equals("Quizz")){
-                    Intent intent=new Intent(Nextactivity.this,StartQuizActivity.class);
+                    Intent intent=new Intent(Nextactivity.this,restart_quizz.class);
                     intent.putExtra("Name",Name);
                     startActivity(intent);
                 }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="@drawable/backgroundimage"
     tools:context=".MainActivity"
     android:orientation="vertical"
     >
@@ -12,16 +12,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/relative"
         >
-
-        <ImageView
-            android:id="@+id/backButton"
-            android:layout_width="64dp"
-            android:layout_height="66dp"
-            android:padding="15dp"
-            android:src="@drawable/baseline_arrow_back_ios_24" />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -33,7 +24,6 @@
             android:id="@+id/ExitAppp"/>
     </RelativeLayout>
 
-
     <com.google.android.material.progressindicator.LinearProgressIndicator
         android:layout_width="match_parent"
         android:layout_height="15dp"
@@ -42,7 +32,6 @@
         app:trackColor="@color/track"
         android:progressBackgroundTint="@color/relative"
         android:id="@+id/progress"/>
-
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -54,14 +43,14 @@
         android:background="@color/white"
         android:padding="20dp"
         >
-
-
         <TextView
             android:id="@+id/QuestionText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
             android:background="@color/white"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textStyle="bold"
             android:text="Question here please"
 
             android:textSize="20dp" />
@@ -77,13 +66,12 @@
         app:cardElevation="20dp"
         android:padding="20dp"
         >
-
-
         <TextView
             android:id="@+id/option1Text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
+            android:gravity="center"
+            android:textColor="@color/black"
             android:background="@color/white"
             android:text="Question here please"
             android:textSize="20dp" />
@@ -98,15 +86,14 @@
         app:cardCornerRadius="15dp"
         android:onClick="OptionBClick"
         app:cardElevation="20dp"
-
         android:padding="20dp"
         >
-
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"
+            android:gravity="center"
+            android:textColor="@color/black"
             android:text="Question here please"
             android:id="@+id/option2Text"
             android:textSize="20dp" />
@@ -122,12 +109,11 @@
         app:cardElevation="20dp"
         android:padding="20dp"
         >
-
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
+            android:gravity="center"
+            android:textColor="@color/black"
             android:background="@color/white"
             android:text="Question here please"
             android:textSize="20dp"
@@ -146,26 +132,24 @@
         app:cardElevation="20dp"
         android:padding="20dp"
         >
-
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"
             android:text="Question here please"
+            android:gravity="center"
+            android:textColor="@color/black"
             android:textSize="20dp"
             android:id="@+id/option4Text"
             />
     </androidx.cardview.widget.CardView>
-
-
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/black"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         android:id="@+id/NextActivity"
         android:layout_margin="15dp"
         android:text="Submit" />
-
-
 </LinearLayout>
