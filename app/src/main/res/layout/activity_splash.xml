@@ -21,20 +21,13 @@
         android:layout_marginBottom="45dp"
         android:src="@drawable/myapp"></ImageView>
 
-    <com.example.loadinganimation.LoadingAnimation
-        android:id="@+id/loadingAnim"
-        android:layout_width="339dp"
-        android:layout_height="170dp"
+    <ProgressBar
+        android:layout_width="75dp"
+        android:layout_height="65dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="34dp"
-        android:layout_marginBottom="104dp"
-        android:elevation="10dp"
-        app:barType="@drawable/clock"
-        app:boldText="false"
-        app:enlarge="5"
-        app:textColor="@color/purple_500"
-        app:textSize="15sp" />
+        android:layout_marginEnd="171dp"
+        android:layout_marginBottom="114dp" />
 
     <TextView
         android:layout_width="wrap_content"
