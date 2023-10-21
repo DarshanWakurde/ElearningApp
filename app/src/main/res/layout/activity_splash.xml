@@ -11,30 +11,38 @@
 
 
     <ImageView
+        android:id="@+id/imgview"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="23dp"
-        android:id="@+id/imgview"
-        android:layout_marginEnd="1dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="-1dp"
+        android:layout_marginBottom="45dp"
         android:src="@drawable/myapp"></ImageView>
 
-    <ProgressBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+    <com.example.loadinganimation.LoadingAnimation
+        android:id="@+id/loadingAnim"
+        android:layout_width="339dp"
+        android:layout_height="170dp"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="521dp"
-        android:layout_marginEnd="180dp" />
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="34dp"
+        android:layout_marginBottom="104dp"
+        android:elevation="10dp"
+        app:barType="@drawable/clock"
+        app:boldText="false"
+        app:enlarge="5"
+        app:textColor="@color/purple_500"
+        app:textSize="15sp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="78dp"
-        android:layout_marginBottom="67dp"
+        android:layout_marginEnd="77dp"
+        android:layout_marginBottom="19dp"
         android:fontFamily="@font/myfont"
         android:text="Awesomeness Loding...."
         android:textSize="40dp"
