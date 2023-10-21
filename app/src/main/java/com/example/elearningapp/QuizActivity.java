@@ -321,4 +321,10 @@ public class QuizActivity extends AppCompatActivity {
         }.start();
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        timer.cancel();
+        dialog.cancel();
+    }
 }

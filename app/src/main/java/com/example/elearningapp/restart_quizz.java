@@ -25,6 +25,7 @@ textView.setText(name);
             @Override
             public void onClick(View view) {
                 Intent i=new Intent(restart_quizz.this,StartQuizActivity.class);
+                i.putExtra("Name",name);
                 startActivity(i);
             }
 
