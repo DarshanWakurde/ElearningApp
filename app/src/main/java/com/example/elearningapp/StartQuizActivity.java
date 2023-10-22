@@ -68,7 +68,10 @@ public class StartQuizActivity extends AppCompatActivity {
                             new Handler().postDelayed(new Runnable() {
                                 @Override
                                 public void run() {
-                                    startActivity(new Intent(StartQuizActivity.this, QuizActivity.class));
+
+                                    Intent intent=new Intent(StartQuizActivity.this, QuizActivity.class);
+                                    intent.putExtra("Name",name);
+                                    startActivity(intent);
                                     finish();
                                 }
                             }, 2000);
@@ -105,7 +108,9 @@ public class StartQuizActivity extends AppCompatActivity {
                             new Handler().postDelayed(new Runnable() {
                                 @Override
                                 public void run() {
-                                    startActivity(new Intent(StartQuizActivity.this, QuizActivity.class));
+                                    Intent intent=new Intent(StartQuizActivity.this, QuizActivity.class);
+                                    intent.putExtra("Name",name);
+                                    startActivity(intent);
                                     finish();
                                 }
                             }, 2000);

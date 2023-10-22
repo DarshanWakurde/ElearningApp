@@ -23,6 +23,9 @@ import java.util.Random;
 public class QuizActivity extends AppCompatActivity {
 
 
+    String name;
+
+
     LinearProgressIndicator materialProgressBar;
     Button diaBtn,NextBtton,End;
     TextView question, option1,option2,option3,option4;
@@ -75,6 +78,8 @@ End =findViewById(R.id.endGame);
 
 
 
+        Intent intent=getIntent();
+        name=intent.getStringExtra("Name");
 
 
 
@@ -276,6 +281,7 @@ End =findViewById(R.id.endGame);
         nextInent.putExtra("Correct",correctCount);
         nextInent.putExtra("Wrong",wrongCount);
         nextInent.putExtra("NotAttemt",notAttemp);
+        nextInent.putExtra("Name",name);
         Toast.makeText(this, ""+wrongCount, Toast.LENGTH_SHORT).show();
         startActivity(nextInent);
     }
@@ -336,5 +342,8 @@ End =findViewById(R.id.endGame);
         super.onPause();
         timer.cancel();
         dialog.cancel();
+        list.clear();
+        index=0;
     }
+
 }
