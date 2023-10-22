@@ -22,7 +22,7 @@ public class WonActivity extends AppCompatActivity {
         correct=findViewById(R.id.corrext);
         wrong=findViewById(R.id.wrong);
 
-        correct.setText("Vlaue-"+corr);
-        wrong.setText("Vlaue-"+Wrong);
+        correct.setText(" "+corr);
+        wrong.setText(" "+Wrong);
     }
 }

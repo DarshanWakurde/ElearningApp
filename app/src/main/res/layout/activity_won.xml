@@ -10,46 +10,77 @@
     android:gravity="center">
 
 
-    <ImageView
-        android:id="@+id/tropy"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="84dp"
-        android:src="@drawable/trophy"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.cardview.widget.CardView
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_marginTop="88dp"
-        android:background="@color/black"
+        android:layout_width="300dp"
+        android:layout_height="400dp"
+        android:backgroundTint="@color/white"
+        android:background="@drawable/quiz"
+        android:layout_marginTop="100dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tropy" >
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/tropy"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/trophy" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="center"
+            android:background="@color/white"
+            android:layout_marginTop="167dp"
+            android:layout_marginStart="18dp"
+            android:src="@drawable/baseline_correct2"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_disabled_by_default_24"
+            android:layout_marginTop="214dp"
+            android:layout_marginStart="18dp"
+            />
 
         <TextView
             android:id="@+id/corrext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="50dp"
-            android:text="Correct"
+           android:layout_marginStart="50dp"
+            android:layout_marginTop="150dp"
+            android:text="15"
+            android:textColor="@color/black"
             android:textSize="40dp" />
 
         <TextView
             android:id="@+id/wrong"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Wrong"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:textSize="40dp"
-            />
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="200dp"
+            android:textColor="@color/black"
+            android:text="15"
+            android:textSize="40dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Restart"
+            android:backgroundTint="@color/green"
+            android:layout_marginTop="340dp"
+            android:layout_marginStart="25dp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Exit"
+            android:textStyle="bold"
+            android:backgroundTint="#ED0D0D"
+            android:layout_marginTop="340dp"
+            android:layout_marginStart="180dp"/>
 
     </androidx.cardview.widget.CardView>
 

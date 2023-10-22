@@ -24,7 +24,7 @@ public class QuizActivity extends AppCompatActivity {
 
 
     LinearProgressIndicator materialProgressBar;
-    Button diaBtn,NextBtton;
+    Button diaBtn,NextBtton,End;
     TextView question, option1,option2,option3,option4;
     CardView option1View,option2View,option3View,option4View;
     DataModel dataModel;
@@ -56,7 +56,7 @@ public class QuizActivity extends AppCompatActivity {
         option2View=findViewById(R.id.Option2);
         option3View=findViewById(R.id.Option3); option4View=findViewById(R.id.Option4);
 
-
+End =findViewById(R.id.endGame);
 
 
 
@@ -176,12 +176,22 @@ public class QuizActivity extends AppCompatActivity {
 
 
         NextBtton=findViewById(R.id.NextActivity);
+        End.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                gameWon();
+            }
+        });
 
 
 
     }
 
     private void setData() {
+
+        if(index==15){
+            End.setVisibility(View.VISIBLE);
+        }
 
         unAbleButton();
         question.setText(dataModel.getQuestion());
