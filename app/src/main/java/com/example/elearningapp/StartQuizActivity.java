@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.example.loadinganimation.LoadingAnimation;
 import com.github.ybq.android.spinkit.sprite.Sprite;
@@ -53,7 +54,8 @@ public class StartQuizActivity extends AppCompatActivity {
 
 
         if (name.equals("Python")) {
-            myRef.child("Python questions").addValueEventListener(new ValueEventListener() {
+            Toast.makeText(this, name, Toast.LENGTH_SHORT).show();
+            myRef.child("questions").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     for (DataSnapshot data : snapshot.getChildren()) {
@@ -93,7 +95,8 @@ public class StartQuizActivity extends AppCompatActivity {
 
 
         if (name.equals("Java Programing")) {
-            myRef.child("questions").addValueEventListener(new ValueEventListener() {
+            Toast.makeText(this, name, Toast.LENGTH_SHORT).show();
+            myRef.child("javaquestions").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     for (DataSnapshot data : snapshot.getChildren()) {
@@ -129,6 +132,50 @@ public class StartQuizActivity extends AppCompatActivity {
 
 
         }
+
+
+
+
+        if (name.equals("Data Structure and algo")) {
+
+            Toast.makeText(this, name, Toast.LENGTH_SHORT).show();
+            myRef.child("DSAQuestions").addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    for (DataSnapshot data : snapshot.getChildren()) {
+
+                        DataModel dataModel = data.getValue(DataModel.class);
+
+                        Log.d("String", dataModel.getQuestion() + "--" + dataModel.getQuestion() + "--" + dataModel.getAnswer() + "--" + dataModel.getOptionb() + "--" + dataModel.getOptionc() + "--" + dataModel.getOptiond());
+                        list.add(dataModel);
+
+
+                        if (list.size() == 25) {
+                            new Handler().postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Intent intent=new Intent(StartQuizActivity.this, QuizActivity.class);
+                                    intent.putExtra("Name",name);
+                                    startActivity(intent);
+                                    finish();
+                                }
+                            }, 2000);
+                        }
+
+
+                    }
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+
+
+        }
+
     }
 
 }
