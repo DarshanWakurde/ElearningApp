@@ -74,6 +74,7 @@ String name=intent1.getStringExtra("Name");
                 Intent intent=new Intent(WonActivity.this, Nextactivity.class);
                 intent.putExtra("Name",name);
                 startActivity(intent);
+                finish();
             }
         });
         Restart.setOnClickListener(new View.OnClickListener() {
@@ -83,6 +84,7 @@ String name=intent1.getStringExtra("Name");
                 Intent intent=new Intent(WonActivity.this, restart_quizz.class);
                 intent.putExtra("Name",name);
                 startActivity(intent);
+                finish();
             }
         });
 

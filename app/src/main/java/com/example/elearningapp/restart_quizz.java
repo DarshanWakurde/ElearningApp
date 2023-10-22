@@ -27,6 +27,7 @@ textView.setText(name);
                 Intent i=new Intent(restart_quizz.this,StartQuizActivity.class);
                 i.putExtra("Name",name);
                 startActivity(i);
+                finish();
             }
 
         });

@@ -284,6 +284,7 @@ End =findViewById(R.id.endGame);
         nextInent.putExtra("Name",name);
         Toast.makeText(this, ""+wrongCount, Toast.LENGTH_SHORT).show();
         startActivity(nextInent);
+        finish();
     }
 
     public void unAbleButton(){
