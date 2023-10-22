@@ -24,6 +24,18 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <com.example.loadinganimation.LoadingAnimation
+                android:id="@+id/celebration"
+                android:layout_width="match_parent"
+                android:layout_height="382dp"
+                android:layout_marginBottom="70dp"
+                android:elevation="10dp"
+                app:barType="@drawable/clock"
+                app:boldText="false"
+                app:enlarge="5"
+                app:textColor="@color/purple_500"
+                app:textSize="15sp" />
+
         <ImageView
             android:id="@+id/tropy"
             android:layout_width="100dp"

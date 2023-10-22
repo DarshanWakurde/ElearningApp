@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.example.loadinganimation.LoadingAnimation;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
@@ -24,11 +25,22 @@ public class WonActivity extends AppCompatActivity {
     public int Wrong;
     public  int NotAttept;
     List<PieEntry> list;
+    LoadingAnimation loadingAnim;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_won);
+
+
+        loadingAnim=findViewById(R.id.celebration);
+        loadingAnim.setProgressVector(getResources().getDrawable(R.drawable.trophygif));
+        loadingAnim.setTextViewVisibility(true);
+        loadingAnim.setTextStyle(true);
+        loadingAnim.setTextColor(R.color.background);
+        loadingAnim.setTextSize(12F);
+        loadingAnim.setTextMsg("Please Wait");
+        loadingAnim.setEnlarge(5);
 
         pieChart=findViewById(R.id.char11);
 
