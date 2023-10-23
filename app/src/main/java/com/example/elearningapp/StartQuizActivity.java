@@ -39,12 +39,8 @@ public class StartQuizActivity extends AppCompatActivity {
         loadingAnim.setTextSize(12F);
         loadingAnim.setTextMsg("Please Wait");
         loadingAnim.setEnlarge(5);
-
-
-
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference();
-
         list = new ArrayList<>();
         ProgressBar progressBar = (ProgressBar)findViewById(R.id.spin_kit);
         Sprite doubleBounce = new Wave();
@@ -148,8 +144,87 @@ public class StartQuizActivity extends AppCompatActivity {
 
                         Log.d("String", dataModel.getQuestion() + "--" + dataModel.getQuestion() + "--" + dataModel.getAnswer() + "--" + dataModel.getOptionb() + "--" + dataModel.getOptionc() + "--" + dataModel.getOptiond());
                         list.add(dataModel);
+                        if (list.size() == 25) {
+                            new Handler().postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Intent intent=new Intent(StartQuizActivity.this, QuizActivity.class);
+                                    intent.putExtra("Name",name);
+                                    startActivity(intent);
+                                    finish();
+                                }
+                            }, 2000);
+                        }
 
 
+                    }
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+
+
+        }
+
+
+
+
+        if (name.equals("Sql")) {
+
+            Toast.makeText(this, name, Toast.LENGTH_SHORT).show();
+            myRef.child("Sql questions").addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    for (DataSnapshot data : snapshot.getChildren()) {
+
+                        DataModel dataModel = data.getValue(DataModel.class);
+
+                        Log.d("String", dataModel.getQuestion() + "--" + dataModel.getQuestion() + "--" + dataModel.getAnswer() + "--" + dataModel.getOptionb() + "--" + dataModel.getOptionc() + "--" + dataModel.getOptiond());
+                        list.add(dataModel);
+                        if (list.size() == 25) {
+                            new Handler().postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Intent intent=new Intent(StartQuizActivity.this, QuizActivity.class);
+                                    intent.putExtra("Name",name);
+                                    startActivity(intent);
+                                    finish();
+                                }
+                            }, 2000);
+                        }
+
+
+                    }
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+
+
+        }
+
+
+
+        if (name.equals("Operating System")) {
+
+            Toast.makeText(this, name, Toast.LENGTH_SHORT).show();
+            myRef.child("Os questions").addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    for (DataSnapshot data : snapshot.getChildren()) {
+
+                        DataModel dataModel = data.getValue(DataModel.class);
+
+                        Log.d("String", dataModel.getQuestion() + "--" + dataModel.getQuestion() + "--" + dataModel.getAnswer() + "--" + dataModel.getOptionb() + "--" + dataModel.getOptionc() + "--" + dataModel.getOptiond());
+                        list.add(dataModel);
                         if (list.size() == 25) {
                             new Handler().postDelayed(new Runnable() {
                                 @Override

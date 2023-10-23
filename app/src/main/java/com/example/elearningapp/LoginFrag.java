@@ -47,11 +47,6 @@ public class LoginFrag extends Fragment {
         logpassword=view.findViewById(R.id.loginpass);
 
         mAuth=FirebaseAuth.getInstance();
-
-
-
-
-
         btn.setOnClickListener(new View.OnClickListener() {
 
             @Override
