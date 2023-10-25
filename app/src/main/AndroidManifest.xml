@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ExtraText">
 
     <application
         android:allowBackup="true"
@@ -12,6 +13,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ElearningApp"
         tools:targetApi="31">
+        <activity
+            android:name=".Pdflist"
+            android:exported="false" />
+        <activity
+            android:name=".pdfset"
+            android:exported="false" />
+        <activity
+            android:name=".pdf_view"
+            android:exported="false" />
         <activity
             android:name=".ProfileActivity"
             android:exported="false" />

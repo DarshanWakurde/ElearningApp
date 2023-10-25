@@ -49,10 +49,6 @@ public class VideoList extends AppCompatActivity implements ItemClickListner {
                         // Access the Python data fields
 
                         VideoModel videoModel = pythonData.getValue(VideoModel.class);
-//                     String id = pythonData.child("id").getValue(String.class);
-//                     String link = pythonData.child("link").getValue(String.class);
-//                     String title = pythonData.child("Title").getValue(String.class);
-//                     String description = pythonData.child("discription").getValue(String.class);
                         list.add(videoModel);
                         // Use the data as needed (e.g., display it in your app)
                         // Example: Log the Python data

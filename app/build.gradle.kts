@@ -37,6 +37,7 @@ dependencies {
     implementation("com.google.firebase:firebase-database:20.2.2")
     implementation("com.google.firebase:firebase-auth:22.1.1")
     implementation("com.squareup.picasso:picasso:2.8")
+
     implementation("de.hdodenhof:circleimageview:3.1.0")
     implementation("com.github.ybq:Android-SpinKit:1.4.0")
     implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")

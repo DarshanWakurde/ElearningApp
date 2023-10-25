@@ -68,32 +68,29 @@ public class Nextactivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                if(items.get(i).getTitle1().equals("Videos")){
-                    Intent intent=new Intent(Nextactivity.this,VideoList.class);
-                    intent.putExtra("Name",Name);
+                if (items.get(i).getTitle1().equals("Videos")) {
+                    Intent intent = new Intent(Nextactivity.this, VideoList.class);
+                    intent.putExtra("Name", Name);
                     startActivity(intent);
                 }
-                if(items.get(i).getTitle1().equals("Quizz")){
-                    Intent intent=new Intent(Nextactivity.this,restart_quizz.class);
-                    intent.putExtra("Name",Name);
+                if (items.get(i).getTitle1().equals("Quizz")) {
+                    Intent intent = new Intent(Nextactivity.this, restart_quizz.class);
+                    intent.putExtra("Name", Name);
                     intent.putExtra("Resid",nextIntent.getIntExtra("Resid",R.drawable.java));
                     startActivity(intent);
                     finish();
                 }
+                if (items.get(i).getTitle1().equals("Notes")) {
+                    Intent intent = new Intent(Nextactivity.this, pdfset.class);
+                    intent.putExtra("Name", Name);
+                    startActivity(intent);
+                }
+
+
+
+
             }
         });
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     }
