@@ -281,6 +281,8 @@ End =findViewById(R.id.endGame);
         nextInent.putExtra("Correct",correctCount);
         nextInent.putExtra("Wrong",wrongCount);
         nextInent.putExtra("NotAttemt",notAttemp);
+        Intent nex=getIntent();
+        nextInent.putExtra("Resid",nex.getIntExtra("Resid",R.drawable.java));
         nextInent.putExtra("Name",name);
         Toast.makeText(this, ""+wrongCount, Toast.LENGTH_SHORT).show();
         startActivity(nextInent);
@@ -345,6 +347,10 @@ End =findViewById(R.id.endGame);
         dialog.cancel();
         list.clear();
         index=0;
+        correctCount=0;
+                notAttemp=0;
+                wrongCount=0;
+
     }
 
 }

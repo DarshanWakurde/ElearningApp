@@ -51,7 +51,7 @@ public class StartQuizActivity extends AppCompatActivity {
 
         if (name.equals("Python")) {
             Toast.makeText(this, name, Toast.LENGTH_SHORT).show();
-            myRef.child("questions").addValueEventListener(new ValueEventListener() {
+            myRef.child("Python questions").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     for (DataSnapshot data : snapshot.getChildren()) {
@@ -69,6 +69,8 @@ public class StartQuizActivity extends AppCompatActivity {
 
                                     Intent intent=new Intent(StartQuizActivity.this, QuizActivity.class);
                                     intent.putExtra("Name",name);
+                                    Intent nextIntent=getIntent();
+                                    intent.putExtra("Resid",nextIntent.getIntExtra("Resid",R.drawable.java));
                                     startActivity(intent);
                                     finish();
                                 }
@@ -92,7 +94,7 @@ public class StartQuizActivity extends AppCompatActivity {
 
         if (name.equals("Java Programing")) {
             Toast.makeText(this, name, Toast.LENGTH_SHORT).show();
-            myRef.child("javaquestions").addValueEventListener(new ValueEventListener() {
+            myRef.child("java questions").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     for (DataSnapshot data : snapshot.getChildren()) {
@@ -109,6 +111,8 @@ public class StartQuizActivity extends AppCompatActivity {
                                 public void run() {
                                     Intent intent=new Intent(StartQuizActivity.this, QuizActivity.class);
                                     intent.putExtra("Name",name);
+                                    Intent nextIntent=getIntent();
+                                    intent.putExtra("Resid",nextIntent.getIntExtra("Resid",R.drawable.java));
                                     startActivity(intent);
                                     finish();
                                 }
@@ -135,7 +139,7 @@ public class StartQuizActivity extends AppCompatActivity {
         if (name.equals("Data Structure and algo")) {
 
             Toast.makeText(this, name, Toast.LENGTH_SHORT).show();
-            myRef.child("DSAQuestions").addValueEventListener(new ValueEventListener() {
+            myRef.child("DSA questions").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     for (DataSnapshot data : snapshot.getChildren()) {
@@ -150,6 +154,8 @@ public class StartQuizActivity extends AppCompatActivity {
                                 public void run() {
                                     Intent intent=new Intent(StartQuizActivity.this, QuizActivity.class);
                                     intent.putExtra("Name",name);
+                                    Intent nextIntent=getIntent();
+                                    intent.putExtra("Resid",nextIntent.getIntExtra("Resid",R.drawable.java));
                                     startActivity(intent);
                                     finish();
                                 }
@@ -191,6 +197,8 @@ public class StartQuizActivity extends AppCompatActivity {
                                 public void run() {
                                     Intent intent=new Intent(StartQuizActivity.this, QuizActivity.class);
                                     intent.putExtra("Name",name);
+                                    Intent nextIntent=getIntent();
+                                    intent.putExtra("Resid",nextIntent.getIntExtra("Resid",R.drawable.java));
                                     startActivity(intent);
                                     finish();
                                 }
@@ -231,6 +239,8 @@ public class StartQuizActivity extends AppCompatActivity {
                                 public void run() {
                                     Intent intent=new Intent(StartQuizActivity.this, QuizActivity.class);
                                     intent.putExtra("Name",name);
+                                    Intent nextIntent=getIntent();
+                                    intent.putExtra("Resid",nextIntent.getIntExtra("Resid",R.drawable.java));
                                     startActivity(intent);
                                     finish();
                                 }

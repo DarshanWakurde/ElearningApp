@@ -37,7 +37,8 @@ public class Courser extends AppCompatActivity implements ItemClickListner {
     String[] str = {"Data Structure and algo", "Java Programing", "Operating System", "Sql", "Python"};
     int[] img = {R.drawable.datastructurealgos, R.drawable.java, R.drawable.ps, R.drawable.sql, R.drawable.python};
     Student stud;
-
+String name12,Email;
+Long mobile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +59,11 @@ public class Courser extends AppCompatActivity implements ItemClickListner {
                         name.setText("Hey,   ".concat(String.valueOf(snapshot.child("name").getValue())));
                         String id = String.valueOf(snapshot.child("id").getValue());
                         imgId=Integer.parseInt(id);
+
+                        Email=snapshot.child("email").getValue(String.class);
+                        mobile=snapshot.child("mobile").getValue(Long.class);
+                        name12=snapshot.child("name").getValue(String.class);
+                        Toast.makeText(Courser.this, name12, Toast.LENGTH_SHORT).show();
 
                         imgwe.setImageResource(imgId);
 
@@ -105,6 +111,19 @@ public class Courser extends AppCompatActivity implements ItemClickListner {
                     intent.putExtra("Resid", img[pos]);
                     intent.putExtra("Name", str[pos]);
                     startActivity(intent);
+            }
+        });
+
+
+        imgwe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(Courser.this,ProfileActivity.class);
+                intent.putExtra("Imagee",imgId);
+                intent.putExtra("Name",name12);
+                intent.putExtra("Mobile",mobile);
+                intent.putExtra("Email",Email);
+                startActivity(intent);
             }
         });
 

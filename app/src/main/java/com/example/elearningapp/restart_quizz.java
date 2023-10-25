@@ -26,6 +26,8 @@ textView.setText(name);
             public void onClick(View view) {
                 Intent i=new Intent(restart_quizz.this,StartQuizActivity.class);
                 i.putExtra("Name",name);
+                Intent nextIntent=getIntent();
+                i.putExtra("Resid",nextIntent.getIntExtra("Resid",R.drawable.java));
                 startActivity(i);
                 finish();
             }

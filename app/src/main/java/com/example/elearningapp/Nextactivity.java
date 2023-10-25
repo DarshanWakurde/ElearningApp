@@ -76,7 +76,9 @@ public class Nextactivity extends AppCompatActivity {
                 if(items.get(i).getTitle1().equals("Quizz")){
                     Intent intent=new Intent(Nextactivity.this,restart_quizz.class);
                     intent.putExtra("Name",Name);
+                    intent.putExtra("Resid",nextIntent.getIntExtra("Resid",R.drawable.java));
                     startActivity(intent);
+                    finish();
                 }
             }
         });

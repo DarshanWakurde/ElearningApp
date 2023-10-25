@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.loadinganimation.LoadingAnimation;
 import com.github.mikephil.charting.charts.PieChart;
@@ -30,6 +31,11 @@ public class WonActivity extends AppCompatActivity {
     LoadingAnimation loadingAnim;
 
     Button Exit,Restart;
+    DatabaseHelper databaseHelper;
+    DatabaseHelperPython databaseHelperPython;
+    DataBaseHelperJava dataBaseHelperJava;
+    DatabaseHelperOs databaseHelperOs;
+    DataBaseHelperSql dataBaseHelperSql;
 
 
     @Override
@@ -51,6 +57,7 @@ public class WonActivity extends AppCompatActivity {
         Exit=findViewById(R.id.ExitQuiz);
         Restart=findViewById(R.id.RestartQuiz);
 
+
         Intent intent=getIntent();
         corr=intent.getIntExtra("Correct",0);
         Wrong=intent.getIntExtra("Wrong",0);
@@ -61,11 +68,74 @@ public class WonActivity extends AppCompatActivity {
         correct.setText(" "+corr);
         wrong.setText(" "+Wrong);
 
+
+        databaseHelper=new DatabaseHelper(this);
+        databaseHelperPython=new DatabaseHelperPython(WonActivity.this);
+        dataBaseHelperJava=new DataBaseHelperJava(WonActivity.this);
+         databaseHelperOs=new DatabaseHelperOs(WonActivity.this);
+         dataBaseHelperSql=new DataBaseHelperSql(WonActivity.this);
+
+
+
+
+
+
         setValue();
         setUpChart();
 Intent intent1=getIntent();
 
 String name=intent1.getStringExtra("Name");
+
+if(name.equals("Data Structure and algo")){
+    long a=databaseHelper.insertData(corr,Wrong);
+    if(a==-1){
+        Toast.makeText(this, "Insertion Gadbad bhai Bhai", Toast.LENGTH_SHORT).show();
+    }
+    else {
+        Toast.makeText(this, "Insert hOgaya", Toast.LENGTH_SHORT).show();
+    }
+}
+
+        if(name.equals("Java Programing")){
+            long a=dataBaseHelperJava.insertData(corr,Wrong);
+            if(a==-1){
+                Toast.makeText(this, "Insertion Gadbad bhai Bhai", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                Toast.makeText(this, "Insert hOgaya", Toast.LENGTH_SHORT).show();
+            }
+        }
+        if(name.equals("Operating System")){
+            long a=databaseHelperOs.insertData(corr,Wrong);
+            if(a==-1){
+                Toast.makeText(this, "Insertion Gadbad bhai Bhai", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                Toast.makeText(this, "Insert hOgaya", Toast.LENGTH_SHORT).show();
+            }
+        }
+        if(name.equals("Sql")){
+            long a=dataBaseHelperSql.insertData(corr,Wrong);
+            if(a==-1){
+                Toast.makeText(this, "Insertion Gadbad bhai Bhai", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                Toast.makeText(this, "Insert hOgaya", Toast.LENGTH_SHORT).show();
+            }
+        }
+        if(name.equals("Python")){
+            long a=databaseHelperPython.insertData(corr,Wrong);
+            if(a==-1){
+                Toast.makeText(this, "Insertion Gadbad bhai Bhai", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                Toast.makeText(this, "Insert hOgaya", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+
+
+
 
         Exit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,6 +153,8 @@ String name=intent1.getStringExtra("Name");
                 list.clear();
                 Intent intent=new Intent(WonActivity.this, restart_quizz.class);
                 intent.putExtra("Name",name);
+                Intent nextIntent=getIntent();
+                intent.putExtra("Resid",nextIntent.getIntExtra("Resid",R.drawable.java));
                 startActivity(intent);
                 finish();
             }
