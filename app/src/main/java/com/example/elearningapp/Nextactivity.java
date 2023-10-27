@@ -46,8 +46,8 @@ public class Nextactivity extends AppCompatActivity {
         items=new ArrayList<>();
         nextitem_models title2=new nextitem_models(R.drawable.videoss,"Videos");
         nextitem_models title3=new nextitem_models(R.drawable.quizz,"Quizz");
-        nextitem_models title4=new nextitem_models(R.drawable.codes,"Notes");
-        nextitem_models title5=new nextitem_models(R.drawable.papersm,"Codes");
+        nextitem_models title4=new nextitem_models(R.drawable.notes,"Notes");
+        nextitem_models title5=new nextitem_models(R.drawable.codes,"DIY");
 
         items.add(title2);
         items.add(title3);
@@ -85,7 +85,7 @@ public class Nextactivity extends AppCompatActivity {
                     intent.putExtra("Name", Name);
                     startActivity(intent);
                 }
-                if (items.get(i).getTitle1().equals("Codes")) {
+                if (items.get(i).getTitle1().equals("DIY")) {
                     Intent intent = new Intent(Nextactivity.this, Codes.class);
                     intent.putExtra("Name", Name);
                     startActivity(intent);
