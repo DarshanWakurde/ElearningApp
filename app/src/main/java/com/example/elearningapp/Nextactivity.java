@@ -46,8 +46,8 @@ public class Nextactivity extends AppCompatActivity {
         items=new ArrayList<>();
         nextitem_models title2=new nextitem_models(R.drawable.videoss,"Videos");
         nextitem_models title3=new nextitem_models(R.drawable.quizz,"Quizz");
-        nextitem_models title4=new nextitem_models(R.drawable.notes,"Notes");
-        nextitem_models title5=new nextitem_models(R.drawable.papersm,"Question Papers");
+        nextitem_models title4=new nextitem_models(R.drawable.codes,"Notes");
+        nextitem_models title5=new nextitem_models(R.drawable.papersm,"Codes");
 
         items.add(title2);
         items.add(title3);
@@ -82,6 +82,11 @@ public class Nextactivity extends AppCompatActivity {
                 }
                 if (items.get(i).getTitle1().equals("Notes")) {
                     Intent intent = new Intent(Nextactivity.this, pdfset.class);
+                    intent.putExtra("Name", Name);
+                    startActivity(intent);
+                }
+                if (items.get(i).getTitle1().equals("Codes")) {
+                    Intent intent = new Intent(Nextactivity.this, Codes.class);
                     intent.putExtra("Name", Name);
                     startActivity(intent);
                 }

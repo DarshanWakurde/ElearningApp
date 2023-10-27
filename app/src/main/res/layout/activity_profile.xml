@@ -29,9 +29,9 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="130dp"
-            android:layout_marginBottom="440dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="128dp"
+            android:layout_marginBottom="432dp"
             android:foregroundGravity="center"
             app:civ_border_color="#FF000000"
             app:civ_border_width="2dp" />
@@ -64,7 +64,7 @@
             android:textSize="15dp"
             android:textColor="@color/timesup"
             android:layout_marginBottom="223dp"
-            android:text="Graph of quizz" />
+            android:text="Visual data" />
 
         <TextView
             android:id="@+id/Profemail"
@@ -150,6 +150,19 @@
             android:layout_marginEnd="152dp"
             android:layout_marginBottom="129dp"
             android:src="@drawable/pythonbutton" />
+
+        <ImageView
+            android:id="@+id/logout"
+            android:layout_width="53dp"
+            android:layout_height="53dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="13dp"
+            android:layout_marginBottom="484dp"
+            android:src="@drawable/baseline_logout_24"
+            tools:ignore="MissingConstraints" />
 
 
     </RelativeLayout>

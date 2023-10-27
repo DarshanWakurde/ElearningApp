@@ -17,6 +17,7 @@ import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.utils.ColorTemplate;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +27,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class ProfileActivity extends AppCompatActivity {
 
     ArrayList barArrayList;
-    ImageView dsa,java,sql,python,os;
+    ImageView dsa,java,sql,python,os,logout;
 
     TextView name,email,mobile;
 
@@ -74,6 +75,8 @@ public class ProfileActivity extends AppCompatActivity {
         email.setText(inet.getStringExtra("Email"));
         mobile.setText(String.valueOf(inet.getLongExtra("Mobile",0)));
         imageView.setImageResource(inet.getIntExtra("Imagee",R.drawable.harry));
+
+        logout=findViewById(R.id.logout);
 
         BarChart barChart=dialog.findViewById(R.id.barchar);
 
@@ -165,6 +168,14 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(ProfileActivity.this,MainActivity.class));
+            }
+        });
 
 
 
